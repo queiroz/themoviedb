@@ -1,20 +1,34 @@
 package org.queiroz.themoviedb.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.main_fragment.*
 import org.queiroz.themoviedb.R
+import org.queiroz.themoviedb.movies.MoviesViewModel
+import org.queiroz.themoviedb.movies.adapter.PopularMoviesAdapter
+import org.queiroz.themoviedb.util.progressBar
+import org.queiroz.themoviedb.util.viewModelProvider
+import timber.log.Timber
+import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment : DaggerFragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var viewModel: MoviesViewModel
+    private val popularMoviesAdapter by lazy {
+        PopularMoviesAdapter({
+            viewModel.retry()
+        }) { movie, _ ->
+            Timber.i("Movie: ${movie?.title}")
+        }
     }
-
-    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +39,24 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = viewModelProvider(viewModelFactory)
+        setupAdapter()
+        setupObservers()
+    }
+
+    private fun setupAdapter() = with(popular_movies) {
+        adapter = popularMoviesAdapter
+        layoutManager = LinearLayoutManager(context)
+    }
+
+    private fun setupObservers() {
+        viewModel.popularMovies.observe(viewLifecycleOwner, Observer { pagedList ->
+            popularMoviesAdapter.submitList(pagedList)
+        })
+        viewModel.networkState.observe(viewLifecycleOwner, Observer { networkState ->
+            popularMoviesAdapter.setNetworkState(networkState)
+            progressBar(networkState)
+        })
     }
 
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
+    <string name="retry">Retry</string>
+    <string name="popular_movies">Popular Movies</string>
 </resources>

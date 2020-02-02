@@ -1,4 +1,9 @@
+import Config.applicationId
+import Config.versionCode
+import Config.versionName
+import Libs.android
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
@@ -7,6 +12,8 @@ plugins {
     kotlin("kapt")
     id("org.jetbrains.dokka").version("0.10.0")
 }
+
+val theMovieDbApiKey: String? by project
 
 android {
     compileSdkVersion(Config.compileSdk)
@@ -21,11 +28,13 @@ android {
 
     buildTypes {
         getByName("debug") {
-            buildConfigField("String", "URI", "\"https://api.themoviedb.org/3\"")
+            buildConfigField("String", "URI", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "THE_MOVIE_DB_API_KEY", theMovieDbApiKey)
             isDebuggable = true
         }
         getByName("release") {
-            buildConfigField("String", "URI", "\"https://api.themoviedb.org/3\"")
+            buildConfigField("String", "URI", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "THE_MOVIE_DB_API_KEY", theMovieDbApiKey)
             isDebuggable = false
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
@@ -34,6 +43,9 @@ android {
     compileOptions {
         sourceCompatibility = Versions.sourceCompat
         targetCompatibility = Versions.targetCompat
+    }
+    buildFeatures{
+        dataBinding = true
     }
     bundle {
         language { enableSplit = true }
@@ -45,45 +57,56 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     // kotlin
-    implementation(Deps.kotlin.stdlib)
-    implementation(Deps.kotlin.coroutines)
+    implementation(Libs.kotlin.stdlib)
+    implementation(Libs.kotlin.coroutines)
+    implementation(Libs.kotlin.coroutinesAndroid)
     // Android
-    implementation(Deps.android.design)
-    implementation(Deps.android.ktxCore)
+    implementation(Libs.android.design)
+    implementation(Libs.android.ktxCore)
     // Support
-    implementation(Deps.support.appCompat)
-    implementation(Deps.support.recyclerView)
-    implementation(Deps.support.constraintLayout)
+    implementation(Libs.support.appCompat)
+    implementation(Libs.support.recyclerView)
+    implementation(Libs.support.constraintLayout)
     // JetPack
-    implementation(Deps.jetpack.lifecycleExtensions)
-    implementation(Deps.jetpack.navigationFragment)
-    implementation(Deps.jetpack.navigationUi)
-    implementation(Deps.jetpack.roomRuntime)
-    implementation(Deps.jetpack.pagingRuntime)
+    implementation(Libs.jetpack.lifecycleViewModelExtensions)
+    implementation(Libs.jetpack.fragment)
+    implementation(Libs.jetpack.navigationFragment)
+    implementation(Libs.jetpack.navigationUi)
+    implementation(Libs.jetpack.roomRuntime)
+    implementation(Libs.jetpack.pagingRuntime)
     // compilers
-    kapt(Deps.jetpack.lifecycleCompiler)
-    kapt(Deps.jetpack.roomCompiler)
-    kapt(Deps.google.daggerCompiler)
+    kapt(Libs.jetpack.lifecycleCompiler)
+    kapt(Libs.jetpack.roomCompiler)
+    kapt(Libs.google.daggerCompiler)
+    kapt(Libs.google.daggerAndroidCompiler)
+    // dagger
+    implementation(Libs.google.dagger)
+    implementation(Libs.google.daggerAndroid)
+    implementation(Libs.google.daggerAndroidSupport)
     // Retrofit
-    implementation(Deps.other.retrofit)
-    implementation(Deps.other.retrofitGson)
+    implementation(Libs.other.retrofit)
+    implementation(Libs.other.retrofitGson)
+    implementation(Libs.other.okHttpLoggingInterceptor)
     // Other
-    implementation(Deps.other.timber)
-    implementation(Deps.other.threeTenBp)
+    implementation(Libs.other.timber)
+    implementation(Libs.other.plainPie)
+    implementation(Libs.other.picasso)
 
     // Tests
-    testImplementation(Deps.test.junit)
-    testImplementation(Deps.test.mockito)
-    testImplementation(Deps.test.robolectric)
-    testImplementation(Deps.test.mockWebServer)
-    testImplementation(Deps.test.livedataTesting)
-    testImplementation(Deps.test.roomTesting)
+    testImplementation(Libs.test.junit)
+    testImplementation(Libs.test.mockito)
+    testImplementation(Libs.test.robolectric)
+    testImplementation(Libs.test.mockWebServer)
+    testImplementation(Libs.test.livedataTesting)
+    testImplementation(Libs.test.roomTesting)
+    testImplementation(Libs.test.coroutinesTest)
+    testImplementation(Libs.test.fragmentTest)
 
-    androidTestImplementation(Deps.test.junit)
-    androidTestImplementation(Deps.test.atslRunner)
-    androidTestImplementation(Deps.test.atslRules)
-    androidTestImplementation(Deps.test.roomTesting)
-    androidTestImplementation(Deps.test.livedataTesting)
+    androidTestImplementation(Libs.test.junit)
+    androidTestImplementation(Libs.test.atslRunner)
+    androidTestImplementation(Libs.test.atslRules)
+    androidTestImplementation(Libs.test.roomTesting)
+    androidTestImplementation(Libs.test.livedataTesting)
 }
 
 val dokka by tasks.getting(DokkaTask::class) {

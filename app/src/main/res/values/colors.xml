@@ -3,4 +3,16 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="black">#111111</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#7A7A7A</color>
+    <color name="greyLight">#EEEEEE</color>
+    <color name="red">#FA3232</color>
+    <color name="green">#01CD00</color>
+    <color name="orange">#FFA726</color>
+    <color name="blueLight">#00adee</color>
+    <color name="info">@color/blueLight</color>
+    <color name="error">@color/red</color>
+    <color name="success">@color/green</color>
+    <color name="warning">@color/orange</color>
 </resources>

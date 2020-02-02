@@ -11,7 +11,8 @@ object Config {
 object Kotlin {
     const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutine}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutine}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutine}"
     const val dokkaPlugin = "org.jetbrains.dokka:dokka-android-gradle-plugin:${Versions.kotlinDokka}"
 }
 
@@ -29,8 +30,9 @@ object Support {
 }
 
 object Jetpack {
-    const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    const val lifecycleViewModelExtensions = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+    const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val navigationFragment = "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.paging}"
@@ -47,20 +49,25 @@ object Test {
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.okhttp}"
     const val roomTesting = "android.arch.persistence.room:testing:${Versions.room}"
     const val livedataTesting = "android.arch.core:core-testing:${Versions.lifecycle}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutine}"
+    const val fragmentTest = "androidx.fragment:fragment-testing:${Versions.fragment}"
 }
 
 object Google {
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+    const val daggerAndroidCompiler = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerAndroid = "com.google.dagger:dagger-android:${Versions.dagger}"
+    const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Versions.dagger}"
 }
 
 object Other {
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-    // Utils
-    // Date and time API for Java.
-    const val threeTenBp = "com.jakewharton.threetenabp:threetenabp:${Versions.threeTenaBp}"
+    const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+    const val plainPie = "com.github.zurche:plain-pie:${Versions.plainPie}"
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 }
 
 object Maven {
@@ -68,7 +75,7 @@ object Maven {
     const val fabricRepository = "https://maven.fabric.io/public"
 }
 
-object Deps {
+object Libs {
     val kotlin = Kotlin
     val android = Android
     val support = Support
