@@ -2,6 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Versions {
     const val androidKtxCore = "1.1.0"
+    const val androidxJunitTest = "1.1.1"
     const val atsl = "1.0.2"
     const val constraintLayout = "2.0.0-beta4"
     const val dagger = "2.26"

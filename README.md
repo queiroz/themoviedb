@@ -19,6 +19,8 @@ then paste the key:
 theMovieDbApiKey="API_KEY"
 ```
 
+Please note that gradle version `4.0.0-alpha09` is required as well as `gradle-6.1-rc-1-all` as Android Studio Preview 4 was used to write the app, because why not! 
+
 ## App stack
 
 **Kotlin**
@@ -42,6 +44,7 @@ theMovieDbApiKey="API_KEY"
 
 **Other**
 
+* Dagger2/dagger-android
 * Android-extensions
 * Picasso
 * Retrofit
@@ -49,3 +52,37 @@ theMovieDbApiKey="API_KEY"
 * OkHttpInterceptor
 * Timber
 * PlainPie
+
+## Extra Implementation Details
+
+**PagedList/DataSource**
+The data source has the capability of retrying from the point it failed, thanks to the use of the executor.
+If 20 items are being displayed and Wifi is turned off or lack of network connectivity or server timeout, the executor will try to fetch data from that point on so that the entire list does not have to be reloaded.
+
+**RecyclerView Adapter/ListAdapter**
+Use of DiffUtil for background list diff computation.
+Custom views.
+Use of recycler view and view pager 2 without Fragments
+
+**Shared Element Transition with Jetpack Navigation**
+Cover<ImageView> is being shared between `List` item and `MovieDetailFragment`
+Animation when transition works fine, however when navigating back animation does not get triggered even when postponing transition `startPostponedEnterTransition()`, probably because because fragment transaction needs `setReorderingAllowed(true)`, further investigation needed.
+
+**Jetpack Navigation**
+`NavHostFragment` with the latest recommendation of `FragmentContainerView`.
+
+Also in order to get the NavController we have to find the Fragment first then look for NavController as there are issues getting the NavController directly with `findNavController(R.id.container)` because of Fragment lifecycle issues.
+```kotlin
+private val navController: NavController by lazy {
+    (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
+}
+```
+**Unit Test**
+
+Testing view model interactions with `LiveData` and `PagedList`.
+
+**UI Test**
+
+Uses Fragment Scenario and espresso to test recyclerview item navigation with jetpack Navigation library, however there seems to be an issue with Fragment Scenario where dependencies would have to be injected manually through FragmentFactory, this solution requires more investigation.
+
+

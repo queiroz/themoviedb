@@ -36,6 +36,7 @@ object Jetpack {
     const val lifecycleViewModelExtensions = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragment}"
     const val navigationFragment = "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.paging}"
@@ -56,6 +57,11 @@ object Test {
     const val livedataTesting = "android.arch.core:core-testing:${Versions.lifecycle}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutine}"
     const val fragmentTest = "androidx.fragment:fragment-testing:${Versions.fragment}"
+    const val testJunit = "androidx.test.ext:junit:${Versions.androidxJunitTest}"
+    const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
+    const val espressoIdlingConcurrent = "androidx.test.espresso.idling:idling-concurrent:${Versions.espresso}"
+    const val espressoIdlingResource = "androidx.test.espresso:espresso-idling-resource:${Versions.espresso}"
 }
 
 object Google {

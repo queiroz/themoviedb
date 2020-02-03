@@ -31,9 +31,9 @@ class MoviesViewModel @Inject constructor(
         .setPageSize(PER_PAGE * 2)
         .build()
 
-    val popularMovies = LivePagedListBuilder(popularMoviesDataFactory, pagedListConfig)
-        .setFetchExecutor(networkExecutor)
-        .build()
+    fun popularMovies() = LivePagedListBuilder(popularMoviesDataFactory, pagedListConfig)
+            .setFetchExecutor(networkExecutor)
+            .build()
 
     var networkState: LiveData<NetworkState> =
         Transformations.switchMap(popularMoviesDataFactory.source) { dataSource ->

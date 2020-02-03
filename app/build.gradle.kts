@@ -21,7 +21,7 @@ android {
         targetSdkVersion(Config.targetSdk)
         versionCode = Config.versionCode
         versionName = Config.versionName
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -50,6 +50,9 @@ android {
         density { enableSplit = true }
         abi { enableSplit = true }
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -68,6 +71,7 @@ dependencies {
     // JetPack
     implementation(Libs.jetpack.lifecycleViewModelExtensions)
     implementation(Libs.jetpack.fragment)
+    implementation(Libs.jetpack.fragmentTesting)
     implementation(Libs.jetpack.navigationFragment)
     implementation(Libs.jetpack.navigationUi)
     implementation(Libs.jetpack.roomRuntime)
@@ -91,6 +95,7 @@ dependencies {
     implementation(Libs.other.timber)
     implementation(Libs.other.plainPie)
     implementation(Libs.other.picasso)
+    implementation(Libs.test.espressoIdlingResource)
 
     // Tests
     testImplementation(Libs.test.junit)
@@ -102,11 +107,16 @@ dependencies {
     testImplementation(Libs.test.coroutinesTest)
     testImplementation(Libs.test.fragmentTest)
 
+    androidTestImplementation(Libs.test.mockito)
     androidTestImplementation(Libs.test.junit)
+    androidTestImplementation(Libs.test.testJunit)
     androidTestImplementation(Libs.test.atslRunner)
     androidTestImplementation(Libs.test.atslRules)
     androidTestImplementation(Libs.test.roomTesting)
     androidTestImplementation(Libs.test.livedataTesting)
+    androidTestImplementation(Libs.test.espressoCore)
+    androidTestImplementation(Libs.test.espressoContrib)
+    androidTestImplementation(Libs.test.espressoIdlingResource)
 }
 
 val dokka by tasks.getting(DokkaTask::class) {

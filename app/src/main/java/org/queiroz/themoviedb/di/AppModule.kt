@@ -5,6 +5,9 @@ import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import org.queiroz.themoviedb.TheMovieDbApp
+import org.queiroz.themoviedb.api.ApiService
+import org.queiroz.themoviedb.movies.repository.MoviesRepository
+import org.queiroz.themoviedb.movies.repository.MoviesRepositoryImpl
 import javax.inject.Singleton
 
 @Module(
@@ -21,5 +24,9 @@ internal class AppModule {
     @Provides
     fun provideSharedPreferences(context: Context): SharedPreferences =
          context.getSharedPreferences("default", Context.MODE_PRIVATE)
+
+    @Singleton
+    @Provides
+    fun provideMovieRepository(service: ApiService): MoviesRepository = MoviesRepositoryImpl(service)
 
 }

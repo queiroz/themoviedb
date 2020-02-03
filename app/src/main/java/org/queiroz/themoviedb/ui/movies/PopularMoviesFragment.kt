@@ -24,7 +24,7 @@ class PopularMoviesFragment : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: MoviesViewModel
+    lateinit var viewModel: MoviesViewModel
     private val popularMoviesAdapter by lazy {
         PopularMoviesAdapter({
             viewModel.retry()
@@ -76,7 +76,7 @@ class PopularMoviesFragment : DaggerFragment() {
     }
 
     private fun setupObservers() {
-        viewModel.popularMovies.observe(viewLifecycleOwner, Observer { pagedList ->
+        viewModel.popularMovies().observe(viewLifecycleOwner, Observer { pagedList ->
             popularMoviesAdapter.submitList(pagedList)
         })
         viewModel.networkState.observe(viewLifecycleOwner, Observer { networkState ->
