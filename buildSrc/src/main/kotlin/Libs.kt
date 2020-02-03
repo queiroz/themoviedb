@@ -7,17 +7,20 @@ object Config {
     const val versionCode = 1
 }
 
-
-object Kotlin {
-    const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-    const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutine}"
-    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutine}"
+object Gradle {
+    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val gradlePlugin = "com.android.tools.build:gradle:${Versions.gradle}"
+    const val navigationSafeArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     const val dokkaPlugin = "org.jetbrains.dokka:dokka-android-gradle-plugin:${Versions.kotlinDokka}"
 }
 
+object Kotlin {
+    const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutine}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutine}"
+}
+
 object Android {
-    const val gradlePlugin = "com.android.tools.build:gradle:${Versions.gradle}"
     const val design = "com.google.android.material:material:${Versions.material}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.androidKtxCore}"
 }
@@ -38,6 +41,8 @@ object Jetpack {
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.paging}"
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
+    const val transition = "androidx.transition:transition:${Versions.transition}"
 }
 
 object Test {
@@ -82,6 +87,7 @@ object Libs {
     val jetpack = Jetpack
     val google = Google
     val maven = Maven
+    val gradle = Gradle
     val other = Other
     val test = Test
 }

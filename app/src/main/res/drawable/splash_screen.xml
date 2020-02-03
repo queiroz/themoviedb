@@ -10,7 +10,7 @@
     <item
         android:layout_width="80dp"
         android:layout_height="61dp"
-        android:drawable="@drawable/ic_the_movie_logo"
+        android:drawable="@drawable/tv_logo"
         android:gravity="center|center_horizontal|center_vertical" />
 
 </layer-list>

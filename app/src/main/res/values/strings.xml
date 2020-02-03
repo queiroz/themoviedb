@@ -2,4 +2,8 @@
     <string name="app_name">TheMovieDB</string>
     <string name="retry">Retry</string>
     <string name="popular_movies">Popular Movies</string>
+    <string name="movie_info">Movie Info</string>
+    <string name="movie_detail_title">%1$s (%2$s)</string>
+    <string name="play_trailer">Play Trailer</string>
+    <string name="user_score">User Score</string>
 </resources>

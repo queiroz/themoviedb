@@ -1,5 +1,6 @@
 package org.queiroz.themoviedb.movies.adapter
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +13,7 @@ import org.queiroz.themoviedb.movies.viewstate.NetworkState
 
 class PopularMoviesAdapter(
     private val retryEvent: () -> Unit,
-    private val itemClickedEvent: (movie: TmdbMovies.Movie?, position: Int) -> Unit
+    private val itemClickedEvent: (movie: TmdbMovies.Movie?, posterImageView: View, position: Int) -> Unit
 ) : PagedListAdapter<TmdbMovies.Movie, RecyclerView.ViewHolder>(COMPARATOR) {
 
     private var networkState: NetworkState? = null

@@ -1,9 +1,5 @@
-import Config.applicationId
-import Config.versionCode
-import Config.versionName
-import Libs.android
+
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
@@ -12,6 +8,8 @@ plugins {
     kotlin("kapt")
     id("org.jetbrains.dokka").version("0.10.0")
 }
+
+apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 val theMovieDbApiKey: String? by project
 
@@ -74,6 +72,8 @@ dependencies {
     implementation(Libs.jetpack.navigationUi)
     implementation(Libs.jetpack.roomRuntime)
     implementation(Libs.jetpack.pagingRuntime)
+    implementation(Libs.jetpack.viewPager2)
+    implementation(Libs.jetpack.transition)
     // compilers
     kapt(Libs.jetpack.lifecycleCompiler)
     kapt(Libs.jetpack.roomCompiler)

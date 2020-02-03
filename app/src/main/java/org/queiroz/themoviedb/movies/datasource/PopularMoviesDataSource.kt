@@ -42,7 +42,6 @@ class PopularMoviesDataSource(
         callback: PageKeyedDataSource.LoadInitialCallback<Int, TmdbMovies.Movie>
     ) {
         networkState.postValue(NetworkState.LOADING)
-
         coroutineScope.launch(Dispatchers.IO) {
             val page = 1
             when (val response = repository.getPopularMovies(page)) {
@@ -67,6 +66,7 @@ class PopularMoviesDataSource(
         params: PageKeyedDataSource.LoadParams<Int>,
         callback: PageKeyedDataSource.LoadCallback<Int, TmdbMovies.Movie>
     ) {
+        networkState.postValue(NetworkState.LOADING)
         coroutineScope.launch(Dispatchers.IO) {
             val page = params.key
             when (val response = repository.getPopularMovies(page)) {

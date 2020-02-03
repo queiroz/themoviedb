@@ -15,7 +15,7 @@ object Versions {
     const val lifecycle = "2.2.0"
     const val material = "1.1.0-rc02"
     const val mockito = "3.2.4"
-    const val navigation = "1.0.0"
+    const val navigation = "2.2.0"
     const val okhttp = "3.11.0"
     const val paging = "2.1.1"
     const val plainPie = "v0.2.9"
@@ -23,8 +23,10 @@ object Versions {
     const val retrofit = "2.7.1"
     const val robolectric = "4.3.1"
     const val room = "2.2.3"
+    const val viewPager2 = "1.0.0"
     val sourceCompat = JavaVersion.VERSION_1_8
     const val supportLibrary = "1.1.0"
     val targetCompat = JavaVersion.VERSION_1_8
     const val timber = "4.7.1"
+    const val transition = "1.3.0"
 }

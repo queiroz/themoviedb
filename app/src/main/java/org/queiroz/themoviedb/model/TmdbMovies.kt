@@ -1,11 +1,15 @@
 package org.queiroz.themoviedb.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class TmdbMovies(
     val page: Int,
     val totalResults: Int,
     val totalPages: Int,
     val results: List<Movie>
 ) {
+    @Parcelize
     data class Movie(
         val id: Int,
         val popularity: Float,
@@ -21,5 +25,5 @@ data class TmdbMovies(
         val voteAverage: Float,
         val overview: String,
         val releaseDate: String
-    )
+    ) : Parcelable
 }
