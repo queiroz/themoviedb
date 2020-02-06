@@ -1,4 +1,4 @@
-package org.queiroz.themoviedb.di
+package org.queiroz.themoviedb.di.module
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson

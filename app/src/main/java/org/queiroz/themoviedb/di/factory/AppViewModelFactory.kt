@@ -1,11 +1,11 @@
-package org.queiroz.themoviedb.di
+package org.queiroz.themoviedb.di.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
 
-class ViewModelFactory @Inject constructor(
+class AppViewModelFactory @Inject constructor(
     private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 

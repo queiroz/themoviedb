@@ -14,6 +14,7 @@ class TheMovieDbApp : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        Timber.uprootAll()
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
     }
 

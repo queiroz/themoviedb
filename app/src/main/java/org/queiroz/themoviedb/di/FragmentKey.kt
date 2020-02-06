@@ -1,6 +1,6 @@
 package org.queiroz.themoviedb.di
 
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
 import dagger.MapKey
 import kotlin.reflect.KClass
 
@@ -9,6 +9,6 @@ import kotlin.reflect.KClass
     AnnotationTarget.PROPERTY_GETTER,
     AnnotationTarget.PROPERTY_SETTER
 )
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(value = AnnotationRetention.RUNTIME)
 @MapKey
-annotation class ViewModelKey(val value: KClass<out ViewModel>)
+internal annotation class FragmentKey(val value: KClass<out Fragment>)

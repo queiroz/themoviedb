@@ -1,4 +1,4 @@
-package org.queiroz.themoviedb.di
+package org.queiroz.themoviedb.di.module
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Module(
     includes = [
-        ViewModelModule::class
+        ViewModelBindingModule::class
     ]
 )
 internal class AppModule {

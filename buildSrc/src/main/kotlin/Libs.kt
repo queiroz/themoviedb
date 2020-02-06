@@ -18,6 +18,7 @@ object Kotlin {
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutine}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutine}"
+    const val allOpen = "org.jetbrains.kotlin:kotlin-allopen:${Versions.kotlin}"
 }
 
 object Android {
@@ -37,7 +38,7 @@ object Jetpack {
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragment}"
-    const val navigationFragment = "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.paging}"
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"

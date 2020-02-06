@@ -108,6 +108,7 @@ dependencies {
     testImplementation(Libs.test.fragmentTest)
 
     androidTestImplementation(Libs.test.mockito)
+    androidTestImplementation("org.mockito:mockito-android:${Versions.mockito}")
     androidTestImplementation(Libs.test.junit)
     androidTestImplementation(Libs.test.testJunit)
     androidTestImplementation(Libs.test.atslRunner)
