@@ -83,6 +83,8 @@ Testing view model interactions with `LiveData` and `PagedList`.
 
 **UI Test**
 
-Uses Fragment Scenario and espresso to test recyclerview item navigation with jetpack Navigation library, however there seems to be an issue with Fragment Scenario where dependencies would have to be injected manually through FragmentFactory, this solution requires more investigation.
+Uses Fragment Scenario and espresso to test recyclerview item navigation with jetpack Navigation library, ~however there seems to be an issue with Fragment Scenario where dependencies would have to be injected manually through FragmentFactory, this solution requires more investigation~.
 
+Implemented Fragment Factory with Dagger 2 and Androidx Navigation library so Fragments can take constructor arguments from daggers graph.
 
+Now Fragment constructor arguments can easily be mocked or switched with fakes for testing. 
