@@ -65,8 +65,7 @@ Custom views.
 Use of recycler view and view pager 2 without Fragments
 
 **Shared Element Transition with Jetpack Navigation**
-Cover<ImageView> is being shared between `List` item and `MovieDetailFragment`
-Animation when transition works fine, however when navigating back animation does not get triggered even when postponing transition `startPostponedEnterTransition()`, probably because because fragment transaction needs `setReorderingAllowed(true)`, further investigation needed.
+Cover<ImageView> is being shared between `List` item and `MovieDetailFragment`.
 
 **Jetpack Navigation**
 `NavHostFragment` with the latest recommendation of `FragmentContainerView`.
@@ -83,7 +82,7 @@ Testing view model interactions with `LiveData` and `PagedList`.
 
 **UI Test**
 
-Uses Fragment Scenario and espresso to test recyclerview item navigation with jetpack Navigation library, ~however there seems to be an issue with Fragment Scenario where dependencies would have to be injected manually through FragmentFactory, this solution requires more investigation~.
+Uses Fragment Scenario and espresso to test recyclerview item navigation with jetpack Navigation library.
 
 Implemented Fragment Factory with Dagger 2 and Androidx Navigation library so Fragments can take constructor arguments from daggers graph.
 
