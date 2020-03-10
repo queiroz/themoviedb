@@ -8,7 +8,7 @@ object Versions {
     const val dagger = "2.26"
     const val espresso = "3.2.0"
     const val fragment = "1.2.0"
-    const val gradle = "4.0.0-alpha09"
+    const val gradle = "4.0.0-beta01"
     const val junit = "4.13"
     const val kotlin = "1.3.61"
     const val kotlinCoroutine = "1.3.3"

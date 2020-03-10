@@ -27,8 +27,8 @@ class MoviesViewModel @Inject constructor(
 
     private val pagedListConfig = PagedList.Config.Builder()
         .setEnablePlaceholders(true)
-        .setInitialLoadSizeHint(PER_PAGE)
-        .setPageSize(PER_PAGE * 2)
+        .setPageSize(PER_PAGE)
+        .setInitialLoadSizeHint(PER_PAGE * 2)
         .build()
 
     fun popularMovies() = LivePagedListBuilder(popularMoviesDataFactory, pagedListConfig)
