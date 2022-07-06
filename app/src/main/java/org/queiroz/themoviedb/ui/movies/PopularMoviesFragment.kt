@@ -50,7 +50,7 @@ class PopularMoviesFragment @Inject constructor(
     ): View {
         val view = inflater.inflate(R.layout.fragment_popular_movies, container, false)
         sharedElementReturnTransition =
-            TransitionInflater.from(context).inflateTransition(R.transition.move)
+            TransitionInflater.from(requireContext()).inflateTransition(R.transition.move)
         return view
     }
 

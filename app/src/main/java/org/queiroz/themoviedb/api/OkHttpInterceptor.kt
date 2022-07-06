@@ -10,7 +10,7 @@ class OkHttpInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
-        val requestUrl = request.url()
+        val requestUrl = request.url
         val url = requestUrl.newBuilder()
             .addQueryParameter("api_key", BuildConfig.THE_MOVIE_DB_API_KEY)
             .build()

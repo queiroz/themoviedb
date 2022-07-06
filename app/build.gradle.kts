@@ -11,14 +11,14 @@ plugins {
 
 apply(plugin = "androidx.navigation.safeargs.kotlin")
 
-val theMovieDbApiKey: String? by project
+val theMovieDbApiKey: String by project
 
 android {
-    compileSdkVersion(Config.compileSdk)
     defaultConfig {
+        compileSdk = Config.compileSdk
         applicationId = Config.applicationId
-        minSdkVersion(Config.minSdk)
-        targetSdkVersion(Config.targetSdk)
+        minSdk = Config.minSdk
+        targetSdk = Config.targetSdk
         versionCode = Config.versionCode
         versionName = Config.versionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -107,6 +107,7 @@ dependencies {
     testImplementation(Libs.test.coroutinesTest)
     testImplementation(Libs.test.fragmentTest)
 
+    androidTestImplementation(Libs.test.androidxTestCore)
     androidTestImplementation(Libs.test.mockito)
     androidTestImplementation("org.mockito:mockito-android:${Versions.mockito}")
     androidTestImplementation(Libs.test.junit)

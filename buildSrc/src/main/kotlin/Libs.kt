@@ -1,8 +1,8 @@
 object Config {
     const val applicationId = "org.queiroz.themoviedb"
-    const val compileSdk = 29
+    const val compileSdk = 31
     const val minSdk = 21
-    const val targetSdk = 29
+    const val targetSdk = 31
     const val versionName = "1.0"
     const val versionCode = 1
 }
@@ -39,7 +39,7 @@ object Jetpack {
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragment}"
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
-    const val navigationUi = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.paging}"
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
@@ -59,6 +59,7 @@ object Test {
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutine}"
     const val fragmentTest = "androidx.fragment:fragment-testing:${Versions.fragment}"
     const val testJunit = "androidx.test.ext:junit:${Versions.androidxJunitTest}"
+    const val androidxTestCore = "androidx.test:core${Versions.androidxTestCore}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
     const val espressoIdlingConcurrent = "androidx.test.espresso.idling:idling-concurrent:${Versions.espresso}"

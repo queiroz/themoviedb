@@ -44,7 +44,7 @@ class MovieDetailFragment : Fragment() {
             false
         )
         sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(R.transition.move)
+            TransitionInflater.from(requireContext()).inflateTransition(R.transition.move)
         binding.movie = args.movie
         return binding.root
     }
